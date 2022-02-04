@@ -15,7 +15,7 @@
  >  - ### Conhecendo o Equals E HashCode
  >  - ### Introdução a listas e coleções
  >  - ### Adicionando disciplinas e calculando a média das notas
- >  - ### bPercorrendo lista pelas posições
+ >  - ### Percorrendo lista pelas posições
  >  - ### Criando lista de alunos aprovados, reprovados e em recuperação
  >  - ### Separando as listas com HashMap
  >  - ### Simples validação de permissão de acesso
