@@ -20,5 +20,3 @@
  >  - ### Separando as listas com HashMap
  >  - ### Simples validação de permissão de acesso
 =======
-# Primeiro-programa-java
->>>>>>> branch 'main' of https://github.com/francaferreira/Primeiro-programa-java.git
