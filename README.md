@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+================================================================================
 > <h1>Primeiro-programa-java</h1>
 
 ![java](https://user-images.githubusercontent.com/42326283/152260291-7ba7d325-a354-414a-8eec-66e4ca013789.jpg)
@@ -19,4 +19,4 @@
  >  - ### Criando lista de alunos aprovados, reprovados e em recuperação
  >  - ### Separando as listas com HashMap
  >  - ### Simples validação de permissão de acesso
-=======
+==================================================================================
