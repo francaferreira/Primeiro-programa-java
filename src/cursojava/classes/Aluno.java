@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cursojava.constantes.StatusAluno;
+import cursojava.heranca.Pessoa;
 
 //Está é nossa classe/objeto que representa o Aluno//
 public class Aluno {
@@ -186,7 +187,25 @@ public class Aluno {
 		return true;
 	}
 
+
+		
+	
+	public boolean pessoaMaiorIdade() {
+		
+		return idade >= 21;
 	}
+
+	public String msgMaiorIdade() {
+		return this.pessoaMaiorIdade() ? "Obaa aluno é maior de idade" : "Ixii vc é menor de idade";
+
+	}
+
+	public double  salario() {
+		// TODO Auto-generated method stub
+		return 1500.9;
+	}
+}
+	
 	
 	
 	
