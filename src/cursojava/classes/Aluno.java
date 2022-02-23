@@ -118,11 +118,12 @@ public class Aluno {
 	//Método que retorna a média do aluno//
 	public double getMediaNota() {
 		double somaNotas = 0.0;
-		for (Disciplina disciplina : disciplinas)
-			somaNotas += disciplina.getNota();
-		return somaNotas / disciplinas.size();
-	}
-	
+		for (Disciplina disciplina : disciplinas) {
+			somaNotas += disciplina.getMediaNotas();
+		}
+		
+	return somaNotas / disciplinas.size();
+}
 	//Método que retorna true para aprovado e false para reprovado//
 	public boolean getAlunoAprovado() {
 		double media = this.getMediaNota();

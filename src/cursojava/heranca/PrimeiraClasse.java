@@ -1,25 +1,46 @@
 package cursojava.heranca;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
+import curso.java.excecao.ExcecaoProcessarNota;
 import cursojava.classes.Aluno;
 import cursojava.classes.Disciplina;
+import cursojava.classesauxiares.FuncaoAutenticacao;
 import cursojava.constantes.StatusAluno;
+import cursojava.interfaces.PermitirAcesso;
 
 public class PrimeiraClasse {
 	
 
 	//Digitar main, Teclado Ctrl + space aparece método main//
-	public static void main(String[] args) {
+	public static void main(String[] args){
+		
+		try {
+			//lerArquivo();
+			
+		
+		/*try {
+			File fil = new File("c://lines.txt");
+			Scanner scanner = new Scanner(fil);
+				
+		} catch (FileNotFoundException e) {
+			throw new ExcecaoProcessarNota(e.getMessage());	
+		}*/
+		
 		
 		String login = JOptionPane.showInputDialog("Digite o login");
 		String senha = JOptionPane.showInputDialog("Digite a senha");
 		
-		if (login.equalsIgnoreCase("admin") && senha.equalsIgnoreCase("admin")) {
+	
+		
+		if (new FuncaoAutenticacao(new Diretor(login, senha)).autenticar()) {//Vou travar o contrato para autorizar somente quem realmente tem o cotrato 100% legitimo//
 		
 		
 		
@@ -32,14 +53,14 @@ public class PrimeiraClasse {
 		List<Aluno> alunosRecuperacao = new ArrayList<Aluno>();
 		List<Aluno> alunosReprovado = new ArrayList<Aluno>();*/
 		
-		for (int qtd = 1; qtd <= 3; qtd++) {
+		for (int qtd = 1; qtd <= 2; qtd++) {
 		
 		//New Aluno() é uma instancia (criação de objeto)//
 		//aluno1 é um referencia para o objeto aluno//
 		
 		String nome = JOptionPane.showInputDialog("Qual o nome do aluno "+qtd+" ?");
-		/*String idade = JOptionPane.showInputDialog("Qual a idade? ");
-		String dataNascimento = JOptionPane.showInputDialog("Data Nascimento? ");
+		String idade = JOptionPane.showInputDialog("Qual a idade? ");
+		/*String dataNascimento = JOptionPane.showInputDialog("Data Nascimento? ");
 		String rg = JOptionPane.showInputDialog("Registro Geral? ");
 		String cpf = JOptionPane.showInputDialog("Numero CPF? ");
 		String nomeMae = JOptionPane.showInputDialog("Nome da Mãe? ");
@@ -54,8 +75,8 @@ public class PrimeiraClasse {
 		Aluno aluno1 = new Aluno();//Aqui será o joão//
 		
 		aluno1.setNome(nome);
-		/*aluno1.setIdade(Integer.valueOf(idade));
-		aluno1.setDataNascimento(dataNascimento);
+		aluno1.setIdade(Integer.valueOf(idade));
+		/*aluno1.setDataNascimento(dataNascimento);
 		aluno1.setRegistroGeral(rg);
 		aluno1.setNumeroCpf(cpf);
 		aluno1.setNomeMae(nomeMae);
@@ -70,7 +91,7 @@ public class PrimeiraClasse {
 			
 			Disciplina disciplina = new Disciplina();
 			disciplina.setDisciplina(nomeDisciplina);
-			disciplina.setNota(Double.valueOf(notaDisciplina));
+			//disciplina.setNota(Double.valueOf(notaDisciplina));
 			
 			aluno1.getDisciplinas().add(disciplina);
 		}
@@ -121,7 +142,11 @@ public class PrimeiraClasse {
 				System.out.println("Nome do aluno " + aluno1.getNome() + " Reprovado = " + aluno1.getAlunoAprovado2() + " com media de = " + aluno1.getMediaNota());
 			}
 		}
+		}else {
+			JOptionPane.showMessageDialog(null, "Acesso não permitido");
+		}
 		
+	
 		/*for (int pos = 0; pos < alunos.size(); pos++) {
 			
 			Aluno aluno = alunos.get(pos);
@@ -205,9 +230,48 @@ public class PrimeiraClasse {
 	}else {
 		System.out.println("Alunos não são iguais");
 	}*/
-	
-	
+		
+		//Aqui//
+		
+		}catch (Exception e) {
+			
+			StringBuilder saida = new StringBuilder();
+			
+			//Imprime erro no console Java
+			e.printStackTrace(); 
+			
+			//Mensagem do erro ou causa
+			System.out.println("Mensagem " + e.getMessage());
+			
+				for (int pos = 0; pos < e.getStackTrace().length; pos++ ) {
+				
+				saida.append("\n Classe de erro: " + e.getStackTrace()[pos].getClassName());
+				saida.append("\n Método de erro: " + e.getStackTrace()[pos].getMethodName());
+				saida.append("\n Linha do erro: " + e.getStackTrace()[pos].getLineNumber());
+				saida.append("\n class: " + e.getClass().getName());
+			}
+			
+			JOptionPane.showMessageDialog(null, "Erro de conversão de número " + saida.toString());
+			
+		}/*catch (FileNotFoundException e) {
+			JOptionPane.showMessageDialog(null, "Opaa um null pointer exeption " + e.getClass());
+			
+		}catch (Exception e) { //Capturar todas a exceções que não prevemos
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Erro da exceção custumizada: " + e.getClass().getName());
+		}*/finally { // Sempre é executado ocorrendo erros ou não.//
+		  JOptionPane.showMessageDialog(null, "Obrigado por aprender java comigo");	
 		}
+	
 	}
+		/*public static void lerArquivo() throws FileNotFoundException {
+			
+			
+			File fil = new File("c://lines.txt");
+			Scanner scanner = new Scanner(fil);
+		}*/
+	}	
+	
 
-}
+
+
